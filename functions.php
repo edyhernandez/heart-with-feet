@@ -1,13 +1,13 @@
 <?php
 
 // Add scripts and stylesheets
-function experimentaltheme_scripts() {
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.6' );
+function heartwithfeet_scripts() {
+	wp_enqueue_style( 'foundation', get_template_directory_uri() . '/foundation-6/dist/assets/css/app.css', array(), '6.2.1' );
 	wp_enqueue_style( 'blog', get_template_directory_uri() . '/css/blog.css' );
-	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.6', true );
+	wp_enqueue_script( 'foundation-js', get_template_directory_uri() . '/foundation-6/bower_components/foundation-sites/dist/foundation.js', array() );
 }
 
-add_action( 'wp_enqueue_scripts', 'experimentaltheme_scripts' );
+add_action( 'wp_enqueue_scripts', 'heartwithfeet_scripts' );
 
 // Add Google Fonts
 function startwordpress_google_fonts() {
