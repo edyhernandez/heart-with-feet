@@ -2,7 +2,7 @@
 
 	<div class="row">
 
-		<div class="col-sm-12">
+		<div class="small-12 large-12 columns">
 
 			<?php 
 				if ( have_posts() ) : while ( have_posts() ) : the_post();

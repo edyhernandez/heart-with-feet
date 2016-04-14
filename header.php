@@ -17,19 +17,29 @@
 </head>
 
 <body>
+	<!--<div class="row full-width">
+		<div class="small-12 columns full-width">
+			<div class="top-bar">
+  				<div class="top-bar-left">
+    				<a href="#">Edy Hernandez</a>
+  				</div>
+  				<div class="top-bar-right">
+  				</div>
+			</div>
+		</div>
+	</div>
 
 	<div class="blog-masthead">
 		<div class="container">
 			<nav class="blog-nav">
-				<a class="blog-nav-item active" href="#">Home</a>
 				<?php wp_list_pages( '&title_li='); ?>
 			</nav>
 		</div>
-	</div>
+	</div> -->
 	
 	<div class="container">
 
-		<div class="blog-header">
+		<!--<div class="blog-header">
 			<h1 class="blog-title"><a href="<?php bloginfo('wpurl');?>"><?php echo get_bloginfo( 'name' ); ?></a></h1>
 			<p class="lead blog-description"><?php echo get_bloginfo( 'description' ); ?></p>
-		</div>
+		</div>-->

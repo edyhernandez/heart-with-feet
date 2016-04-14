@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 	<div class="row">
-		<div class="col-sm-12">
+		<div class="small-12 columns">
 
 			<?php 
 				$args =  array( 

@@ -8,10 +8,10 @@
 <!-- This allows me to show the featured image as part of the blog post summary on the main blog page of my website! -->        
 <?php if ( has_post_thumbnail() ) {?>
 	<div class="row">
-		<div class="col-md-4">
+		<div class="medium-4 columns">
 			<?php	the_post_thumbnail('thumbnail'); ?>
 		</div>
-		<div class="col-md-6">
+		<div class="medium-6 columns">
 			<?php the_excerpt(); ?>
 		</div>
 	</div>

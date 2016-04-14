@@ -3,7 +3,8 @@
 // Add scripts and stylesheets
 function heartwithfeet_scripts() {
 	wp_enqueue_style( 'foundation', get_template_directory_uri() . '/foundation-6/dist/assets/css/app.css', array(), '6.2.1' );
-	wp_enqueue_style( 'blog', get_template_directory_uri() . '/css/blog.css' );
+	//wp_enqueue_style( 'blog', get_template_directory_uri() . '/css/blog.css' );
+	wp_enqueue_script( 'jQuery', get_template_directory_uri() . '/foundation-6/bower_components/jquery/dist/jquery.js', array() );
 	wp_enqueue_script( 'foundation-js', get_template_directory_uri() . '/foundation-6/bower_components/foundation-sites/dist/foundation.js', array() );
 }
 
@@ -42,6 +43,10 @@ function custom_settings_page() { ?>
   </div>
 <?php }
 
+//Experimental Text Edit Field Starts here
+function setting_text() { ?>
+  <input type="text" name="home-page-text-area" id="home-page-text-area" value="<?php echo get_option('home-page-text-area'); ?>" />
+<?php }
 
 // Twitter - This adds a Twitter Field to the custom settings menu in the WordPress Admin
 function setting_twitter() { ?>
@@ -98,3 +103,41 @@ function create_my_custom_post() {
 	));
 }
 add_action('init', 'create_my_custom_post');
+
+// Load up our awesome theme options
+require_once ( get_template_directory() . '/theme-options.php' );
+
+
+// Load the TGM Plugin Activator
+require_once dirname( __FILE__ ) . '/extras/class-tgm-plugin-activation.php';
+ 
+add_action( 'tgmpa_register', 'heart_with_feet_require_plugins' );
+ 
+function heart_with_feet_require_plugins() {
+ 
+    $plugins = array( 
+    	array(
+    		'name' => 'Advanced Custom Fields',
+    		'slug' => 'advanced-custom-fields',
+    		'source' => get_stylesheet_directory() . '/extras/plugins/advanced-custom-fields/advanced-custom-fields.4.4.7.zip', // The internal source of the plugin.
+    		'required' => true, // This plugin is required, can be set to false
+    		'version' => '4.4.6', // This determines the minimum version the user must use for the required plugin
+    		'force_activation' =>  false,// This plugin is going to stay activated unless the user switches to another theme
+    	)/* The array to install plugins */ 
+    );
+    
+    $config = array(
+    		'id' => 'heartwithfeet-tgmpa', // your unique TGMPA ID, This is necessary to avoid conflics with multiple instances of the tgm plugin found elsewhere
+    		'default_path' => '', // the default path for plugins inside your theme. When you set this, you can just use the name of the ZIP file as the source parameter for your plugin.
+    		'menu' => 'heartwithfeet-install-required-plugins', // the menu slug for the plugin install page
+    		'has_notices' => true, // show admin notices
+    		'dismissable' => false, // the notices are NOT dismissable, if set to true, the user can "dismiss" the notices.
+    		'dismiss_msg' => 'This theme requires extra plugins for it to work properly!', // this message will be output at the top of the nav
+    		'is_automatic' => true, // automatically activates plugins after installation
+    		'message' => '<!--This comes from my theme!-->', // optional HTML to display before the plugins table.
+    		'strings' => array() // The array of message strings that TGM Plugin Activation uses. You can set them as translatable strings, too. Check out the example.php file to see the full list of message strings.
+    	); /* The array to configure TGM Plugin Activation */ 
+ 
+    tgmpa( $plugins, $config );
+ 
+}
