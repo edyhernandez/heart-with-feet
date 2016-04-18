@@ -6,6 +6,7 @@ function heartwithfeet_scripts() {
 	//wp_enqueue_style( 'blog', get_template_directory_uri() . '/css/blog.css' );
 	wp_enqueue_script( 'jQuery', get_template_directory_uri() . '/foundation-6/bower_components/jquery/dist/jquery.js', array() );
 	wp_enqueue_script( 'foundation-js', get_template_directory_uri() . '/foundation-6/bower_components/foundation-sites/dist/foundation.js', array() );
+	wp_enqueue_script( 'heart-with-feet-js', get_template_directory_uri() . '/foundation-6/src/assets/js/app.js', array() );
 }
 
 add_action( 'wp_enqueue_scripts', 'heartwithfeet_scripts' );
