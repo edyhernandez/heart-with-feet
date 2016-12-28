@@ -6,7 +6,14 @@ function heartwithfeet_scripts() {
 	//wp_enqueue_style( 'blog', get_template_directory_uri() . '/css/blog.css' );
 	wp_enqueue_script( 'jQuery', get_template_directory_uri() . '/foundation-6/bower_components/jquery/dist/jquery.js', array() );
 	wp_enqueue_script( 'foundation-js', get_template_directory_uri() . '/foundation-6/bower_components/foundation-sites/dist/foundation.js', array() );
+//  wp_enqueue_script( 'foundation-core-js', get_template_directory_uri() . '/foundation-6/bower_components/foundation-sites/js/foundation.core.js', array() );
+//  wp_enqueue_script( 'foundation-mediaquery-js', get_template_directory_uri() . '/foundation-6/bower_components/foundation-sites/js/foundation.util.mediaQuery.js', array() );
+//  wp_enqueue_script( 'foundation-offcanvas-js', get_template_directory_uri() . '/foundation-6/bower_components/foundation-sites/js/foundation.offcanvas.js', array() );
+//  wp_enqueue_script( 'foundation-triggers-js', get_template_directory_uri() . '/foundation-6/bower_components/foundation-sites/js/foundation.util.triggers.js', array() );
+//  wp_enqueue_script( 'foundation-motion-js', get_template_directory_uri() . '/foundation-6/bower_components/foundation-sites/js/foundation.util.motion.js', array() );
 	wp_enqueue_script( 'heart-with-feet-js', get_template_directory_uri() . '/foundation-6/src/assets/js/app.js', array() );
+  wp_enqueue_script( 'smoothState-js', get_template_directory_uri() . '/js/jquery.smoothState.js', array() );
+  wp_enqueue_script( 'smoothState-initialize-js', get_template_directory_uri() . '/js/smoothstate-initialize.js', array() );
 }
 
 add_action( 'wp_enqueue_scripts', 'heartwithfeet_scripts' );
@@ -21,6 +28,17 @@ add_action('wp_print_styles', 'startwordpress_google_fonts');
 
 // WordPress Titles
 add_theme_support( 'title-tag' );
+
+// Register navigation menus
+function register_my_menus() {
+  register_nav_menus(
+    array(
+      'header-menu' => __( 'Header Menu' ),
+      'extra-menu' => __( 'Extra Menu' )
+    )
+  );
+}
+add_action( 'init', 'register_my_menus' );
 
 
 // Custom settings
@@ -124,7 +142,15 @@ function heart_with_feet_require_plugins() {
     		'required' => true, // This plugin is required, can be set to false
     		'version' => '4.4.6', // This determines the minimum version the user must use for the required plugin
     		'force_activation' =>  false,// This plugin is going to stay activated unless the user switches to another theme
-    	)/* The array to install plugins */ 
+    	),/* The array to install plugins */ 
+      array(
+        'name' => 'Advanced Custom Fields Options Page',
+        'slug' => 'advanced-custom-fields-options-page',
+        'source' => get_stylesheet_directory() . '/extras/plugins/advanced-custom-fields-options-page/acf-options-page.zip', // The internal source of the plugin.
+        'required' => true, // This plugin is required, can be set to false
+        'version' => '', // This determines the minimum version the user must use for the required plugin
+        'force_activation' =>  false,// This plugin is going to stay activated unless the user switches to another theme
+      )/* The array to install plugins */ 
     );
     
     $config = array(

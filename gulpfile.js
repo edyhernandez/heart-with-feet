@@ -39,7 +39,7 @@ gulp.task ('watch', ['browserSync', 'sass'], function(){
 //This tells browser sync where's the root of my server for browser refresh
 gulp.task('browserSync', function() {
   browserSync.init({
-    proxy: 'localhost:8888/wordpress-experiments/'
+    proxy: 'localhost/wordpress-experiments/'
   });
 })
 

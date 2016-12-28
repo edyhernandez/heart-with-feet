@@ -1,86 +1,502 @@
-@charset 'utf-8';
+@charset "utf-8";
 
-@import 'settings';
-@import 'foundation';
-@import 'motion-ui';
+@import "settings";
+@import "foundation";
+@import "motion-ui";
 
 @include foundation-global-styles;
+
 @include foundation-grid;
+
 // @include foundation-flex-grid;
 @include foundation-typography;
+
 @include foundation-button;
+
 @include foundation-forms;
+
 // @include foundation-range-input;
 @include foundation-accordion;
+
 @include foundation-accordion-menu;
+
 @include foundation-badge;
+
 @include foundation-breadcrumbs;
+
 @include foundation-button-group;
+
 @include foundation-callout;
+
 @include foundation-close-button;
+
 @include foundation-menu;
+
 @include foundation-menu-icon;
+
 @include foundation-drilldown-menu;
+
 @include foundation-dropdown;
+
 @include foundation-dropdown-menu;
+
 @include foundation-flex-video;
+
 @include foundation-label;
+
 @include foundation-media-object;
+
 @include foundation-off-canvas;
+
 @include foundation-orbit;
+
 @include foundation-pagination;
+
 @include foundation-progress-bar;
+
 // @include foundation-progress-element;
 // @include foundation-meter-element;
 @include foundation-slider;
+
 @include foundation-sticky;
+
 @include foundation-reveal;
+
 @include foundation-switch;
+
 @include foundation-table;
+
 @include foundation-tabs;
+
 @include foundation-thumbnail;
+
 @include foundation-title-bar;
+
 @include foundation-tooltip;
+
 @include foundation-top-bar;
+
 @include foundation-visibility-classes;
+
 @include foundation-float-classes;
+
 // @include foundation-flex-classes;
 
 @include motion-ui-transitions;
+
 @include motion-ui-animations;
 
-.row {
-	padding: 0 0 0 0;
+.off-canvas-wrapper {
 
-	.full-width {
-		width: 100%;
-		max-width: 100%;
-	}
+}
+
+.off-canvas-wrapper-inner {
+
+}
+
+.off-canvas-content {
+
+}
+
+header {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+}
+
+ul.cbp-bislideshow {
+    position: fixed;
+    top: 0;
+    margin: 0;
+    z-index:0;
+}
+
+nav.main-nav {
+    display: inline-block;
+
+    ul {
+        background: none;
+        margin: 0 0 0 0;
+
+        li {
+            list-style-type: none;
+            display: inline-block;
+            color: #ffffff;
+
+            a {
+                color: #ffffff;
+            }
+        }
+    }
+}
+
+.row {
+    padding: 0 0 0 0;
+    max-width: 100%;
+
+    .full-width {
+        width: 100%;
+        max-width: 100%;
+    }
 }
 
 .full-width {
-	padding: 0 0 0 0;
-	width: 100%;
-}
-
-h1 {
-	border: solid red 2px;
+    padding: 0 0 0 0;
+    width: 100%;
 }
 
 .top-bar {
-	background-color: #000000;
-	opacity: 0.7;
-	position: fixed;
-	width: 100%;
-	position: fixed;
-	top: 0;
-	transition: top 0.2s ease-in-out;
+    background-color: #000000;
+    opacity: 0.7;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    transition: top 0.2s ease-in-out;
+    padding: 0;
+    //height: 45px;
+
+    .top-bar-left {
+        height: 45px;
+    }
+
+    span.logo {
+        padding: 0 20px 0 20px;
+    }
+
+    div.logo {
+        padding: 0 0 0 0;
+        display: block;
+        text-align: center;
+    }
+
+    img {
+        height: 40px;
+    }
 }
 
 .nav-up {
-    top: -40px;
+    top: -60px;
+}
+
+.footer-up {
+    bottom: -50px;
+}
+
+.top-right-content {
+    float: right;
+    margin: 100px 0 0 0;
+    padding: 0 80px 0 80px;
+    font-size: 24px;
+    text-align: left;
 }
 
 #content {
-	margin: 40px 0 0 0;
+    margin: 40px 0 0 0;
+    color: #ffffff;
 }
+
+#cbp-bicontrols {
+    display: none;
+}
+
+footer {
+    color: #ffffff;
+    padding: 0 20px 0 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #000000;
+    opacity: 0.7;
+    transition: bottom 0.2s ease-in-out;
+
+    p {
+        margin: 10px 0 10px 0;
+    }
+
+    a {
+        color: #ffffff;
+    }
+}
+
+@media only screen and (max-width: 40em) {
+    /* Styling for mobile devices starts here */
+
+    div.top-bar {
+
+        div.left-offcanvas-button {
+            padding: 10px;
+            display: inline-block;
+        }
+
+        div.right-offcanvas-button {
+            padding: 10px;
+            display: inline-block;
+        }
+
+        span.logo {
+            text-align: center;
+            display: block;
+            margin: 0 0 0 0;
+        }
+
+        div.logo {
+            padding: 0 0 0 0;
+            display: block;
+            text-align: center;
+        }
+
+        img {
+            height: 40px;
+        }
+
+
+    }
+
+    .top-right-content {
+        margin: 0 0 0 0;
+        padding: 0 20px 0 20px;
+    }
+}
+
+// Background Slider CSS starts here!
+
+@font-face {
+    font-family: 'entypo';
+    src: url("../fonts/controls/entypo.eot");
+    src: url("../fonts/controls/entypo.eot?#iefix") format("embedded-opentype"), url("../fonts/controls/entypo.woff") format("woff"), url("../fonts/controls/entypo.ttf") format("truetype"), url("../fonts/controls/entypo.svg#entypo") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.cbp-bislideshow {
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    padding: 0;
+    margin: 0;
+}
+
+.cbp-bislideshow li {
+    position: absolute;
+    width: 101%;
+    height: 101%;
+    top: -0.5%;
+    left: -0.5%;
+    opacity: 0;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    transition: opacity 1s;
+}
+
+/* If background-size supported we'll add the images to the background of the li */
+
+.backgroundsize .cbp-bislideshow li {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+}
+
+/* ...and hide the images */
+.backgroundsize .cbp-bislideshow li img {
+    display: none;
+}
+
+.cbp-bislideshow li img {
+    display: block;
+    width: 100%;
+}
+
+.cbp-bicontrols {
+    position: fixed;
+    width: 300px;
+    height: 100px;
+    margin: -50px 0 0 -150px;
+    bottom: 50px;
+
+    /* This used to be top: 50%; */
+    left: 50%;
+}
+
+.cbp-bicontrols span {
+    float: left;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    cursor: pointer;
+}
+
+.cbp-bicontrols span:before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    font-family: 'entypo';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 100px;
+    font-size: 80px;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    opacity: 0.7;
+}
+
+.cbp-bicontrols span:hover:before {
+    opacity: 1;
+}
+
+.cbp-bicontrols span:active:before {
+    top: 2px;
+}
+
+span.cbp-biplay:before {
+    content: "\e002";
+}
+
+span.cbp-bipause:before {
+    content: "\e003";
+}
+
+span.cbp-binext:before {
+    content: "\e000";
+}
+
+span.cbp-biprev:before {
+    content: "\e001";
+}
+
+.cbp-bicontrols span.cbp-binext {
+    float: right;
+}
+
+/* Fallback */
+
+.no-js.no-backgroundsize .cbp-bislideshow li:first-child {
+    opacity: 1;
+}
+
+.no-js.backgroundsize .cbp-bislideshow li:first-child img {
+    display: block;
+}
+
+// End Background slider CSS code
+
+
+//Experimental Keyframes starts here
+
+/*
+ * Keyframes
+ */
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+// Keyframes End Here
+
+// CSS for keyframes start here
+
+/*
+ * CSS Page Transitions
+ * Don't forget to add vendor prefixes!
+ */
+.m-scene {
+    /** Basic styles for an animated element */
+    .scene_element {
+        animation-duration: 0.25s;
+        transition-timing-function: ease-in;
+        animation-fill-mode: both;
+    }
+
+    /** An element that fades in */
+    .scene_element--fadein {
+        animation-name: fadeIn;
+    }
+
+    /** An element that fades in and slides up */
+    .scene_element--fadeinup {
+        animation-name: fadeInUp;
+    }
+
+    /** An element that fades in and slides from the right */
+    .scene_element--fadeinright {
+        animation-name: fadeInRight;
+    }
+}
+
+// End Keyframe CSS
+
+// More Keyframe CSS
+
+/*
+ * CSS Page Transitions
+ * Don't forget to add vendor prefixes!
+ */
+.m-scene {
+    .scene_element {
+        animation-duration: 1.25s;
+        transition-timing-function: ease-in;
+        animation-fill-mode: both;
+    }
+
+    .scene_element--fadein {
+        animation-name: fadeIn;
+    }
+
+    .scene_element--fadeinup {
+        animation-name: fadeInUp;
+    }
+
+    .scene_element--fadeinright {
+        animation-name: fadeInRight;
+    }
+
+    /** Reverse "exit" animations */
+    &.is-exiting {
+        .scene_element {
+            animation-direction: alternate-reverse;
+        }
+    }
+}
+
+// End More Keyframe CSS
