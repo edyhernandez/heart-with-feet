@@ -18,17 +18,17 @@ gulp.task('hello', function () {
 });
 
 gulp.task('sass', function(){
-  return gulp.src('scss/**/*.scss') // Gets all files ending with .scss in app/scss
-    .pipe(sass()) // Using gulp-sass
-    .pipe(gulp.dest('css/'))
-    .pipe(browserSync.reload({
+  return gulp.src('foundation-6/src/assets/scss/app.scss') // Grabs app.scss in the directory specified
+    .pipe(sass().on('error', sass.logError)) // Using gulp-sass, also logs errors when running sass task on gulp
+    .pipe(gulp.dest('foundation-6/dist/assets/css')) // Stores compiled code into the specified directory
+    .pipe(browserSync.reload({ // initiates browserSync reload so that I can see changes immediately after being compiled in effect!
     	stream: true
     }))
 });
 
 //gulp watch settings
 gulp.task ('watch', ['browserSync', 'sass'], function(){
-	gulp.watch('scss/**/*.scss', ['sass']);
+	gulp.watch('foundation-6/src/assets/scss/app.scss', ['sass']); // Gulp watches any changes made to app.scss in the specified directory and then runs the gulp task "sass"
 	//add other watchers here
 	// Reloads the browser whenever HTML or JS files change 
 	gulp.watch('*.php', browserSync.reload);

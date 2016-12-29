@@ -2,7 +2,7 @@
 
 @import "settings";
 @import "foundation";
-@import "motion-ui";
+//@import "motion-ui";
 
 @include foundation-global-styles;
 
@@ -82,9 +82,9 @@
 
 // @include foundation-flex-classes;
 
-@include motion-ui-transitions;
+//@include motion-ui-transitions;
 
-@include motion-ui-animations;
+//@include motion-ui-animations;
 
 .off-canvas-wrapper {
 
