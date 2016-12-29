@@ -18,9 +18,9 @@ gulp.task('hello', function () {
 });
 
 gulp.task('sass', function(){
-  return gulp.src('scss/**/*.scss') // Gets all files ending with .scss in app/scss
-    .pipe(sass()) // Using gulp-sass
-    .pipe(gulp.dest('css/'))
+  return gulp.src('foundation-6/src/assets/scss/app.scss') // Gets all files ending with .scss in app/scss
+    .pipe(sass().on('error', sass.logError)) // Using gulp-sass
+    .pipe(gulp.dest('foundation-6/dist/assets/css'))
     .pipe(browserSync.reload({
     	stream: true
     }))
@@ -28,7 +28,7 @@ gulp.task('sass', function(){
 
 //gulp watch settings
 gulp.task ('watch', ['browserSync', 'sass'], function(){
-	gulp.watch('scss/**/*.scss', ['sass']);
+	gulp.watch('foundation-6/src/assets/scss/app.scss', ['sass']);
 	//add other watchers here
 	// Reloads the browser whenever HTML or JS files change 
 	gulp.watch('*.php', browserSync.reload);
